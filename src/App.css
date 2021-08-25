@@ -2,3 +2,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn {
+  background: #f57e2e;
+  border: 2px solid #f57e2e;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.btn:active {
+  background: white;
+  color: #f57e2e;
+}
