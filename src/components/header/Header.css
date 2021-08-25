@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 2px 30px rgb(189, 189, 189);
+}
+
+.nav {
+  width: 100%;
+}
+.nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+.nav ul li {
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  width: 20px;
+}
