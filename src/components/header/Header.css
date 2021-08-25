@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  align-items: center;
   width: 100%;
   padding: 10px;
   background-color: white;
@@ -9,6 +10,7 @@
 .nav {
   width: 100%;
 }
+
 .nav ul {
   display: flex;
   justify-content: flex-end;
@@ -19,7 +21,6 @@
   padding-right: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .cart {

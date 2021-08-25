@@ -6,3 +6,8 @@
   color: rgb(85, 85, 85);
   padding-bottom: 10px;
 }
+
+.main .product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
