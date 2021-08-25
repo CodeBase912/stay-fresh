@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { AppContext } from '../../App';
+import { products } from '../../products';
 import ProductImg1 from '../../images/products/1.png';
 import ProductImg2 from '../../images/products/2.png';
 import ProductImg3 from '../../images/products/3.jpg';
@@ -12,7 +14,34 @@ const images = [
 ];
 
 function Product(props) {
-  const { name, price, imgSrc } = props;
+  const { productId, name, price, imgSrc } = props;
+  const cartData = useContext(AppContext);
+  console.log(cartData.cart);
+
+  function addToCart(id) {
+    const product = products.find((product) => {
+      if (product.id === id) {
+        return true;
+      }
+    });
+
+    const index = cartData.cart.findIndex((item) => {
+      if (item.id === productId) {
+        return true;
+      }
+    });
+    if (index < 0) {
+      const arr = [...cartData.cart, { ...product, quantity: 1 }];
+      cartData.setCart([...arr]);
+    } else if (index >= 0) {
+      const arr = cartData.cart;
+      arr[index].quantity++;
+      cartData.setCart([...arr]);
+    } else {
+      const arr = [...cartData.cart, product];
+      cartData.setCart([...arr]);
+    }
+  }
 
   const img = images.find((image) => {
     if (image.src === imgSrc) {
@@ -35,7 +64,15 @@ function Product(props) {
         <h4>{name}</h4>
         <p>R{price}.00</p>
         <div className='product-btn-wrapper'>
-          <button className='btn'>Add to cart</button>
+          <button
+            className='btn'
+            id={productId}
+            onClick={() => {
+              addToCart(productId);
+            }}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

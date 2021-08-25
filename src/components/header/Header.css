@@ -23,6 +23,20 @@
   justify-content: center;
 }
 
+.cart-icon-wrapper {
+  position: relative;
+}
+
 .cart {
   width: 20px;
+}
+
+.cart-items {
+  position: absolute;
+  top: -50%;
+  right: 10%;
+  background: #a9ca48;
+  border-radius: 50%;
+  padding: 0 5px;
+  color: white;
 }

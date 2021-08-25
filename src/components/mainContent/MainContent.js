@@ -11,6 +11,7 @@ function MainContent() {
         {products.map((product) => {
           return (
             <Product
+              productId={product.id}
               name={product.name}
               price={product.price}
               imgSrc={product.imgSrc}
