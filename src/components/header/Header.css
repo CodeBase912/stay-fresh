@@ -25,6 +25,7 @@
 
 .cart-icon-wrapper {
   position: relative;
+  cursor: pointer;
 }
 
 .cart {

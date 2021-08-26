@@ -27,18 +27,16 @@ function Header() {
 
 function CartItemsIndicator() {
   const cartData = useContext(AppContext);
-  console.log(cartData);
-  useEffect(() => {
-    console.log(cartData);
-  }, [cartData.cart]);
+  useEffect(() => {}, [cartData.cart]);
 
   let cartItems = 0;
   cartData.cart.map((item) => {
     cartItems += item.quantity;
+    return cartItems;
   });
   return (
     <div className='cart-items'>
-      <p>{cartItems == 0 ? '' : cartItems}</p>
+      <p>{cartItems === 0 ? '' : cartItems}</p>
     </div>
   );
 }
