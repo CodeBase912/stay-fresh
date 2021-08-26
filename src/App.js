@@ -7,10 +7,11 @@ import './App.css';
 export const AppContext = React.createContext();
 function App() {
   const [cart, setCart] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
   return (
-    <AppContext.Provider value={{ cart, setCart }}>
+    <AppContext.Provider value={{ cart, setCart, cartOpen, setCartOpen }}>
       <Header />
-      <Cart />
+      {cartOpen === true ? <Cart /> : console.log('')}
       <MainContent />
     </AppContext.Provider>
   );

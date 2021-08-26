@@ -4,6 +4,11 @@ import './Header.css';
 import cartIcon from '../../images/shopping-cart.png';
 
 function Header() {
+  const cartData = useContext(AppContext);
+  function showCartHandler() {
+    cartData.setCartOpen(!cartData.cartOpen);
+  }
+
   return (
     <div className='header'>
       <div className='logo'>
@@ -15,7 +20,7 @@ function Header() {
           <li>Shop</li>
           <li>About</li>
           <li>Contact</li>
-          <li className='cart-icon-wrapper'>
+          <li className='cart-icon-wrapper' onClick={() => showCartHandler()}>
             <img src={cartIcon} alt='Shopping cart' className='cart' />
             <CartItemsIndicator />
           </li>

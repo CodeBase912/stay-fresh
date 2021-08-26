@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../App';
 import { formatNumber } from '../../Util/Util';
 import closeIcon from '../../images/close.png';
@@ -20,6 +20,37 @@ const images = [
 function Cart() {
   const cartData = useContext(AppContext);
 
+  function showCartHandler() {
+    cartData.setCartOpen(false);
+  }
+
+  function toggleCart(event) {
+    if (event.target.getAttribute('class') != null) {
+      // If the target has a class attribute do the following
+      const elementClicked = event.target.getAttribute('class').split('-');
+      if (elementClicked[0] == 'cart') {
+        // If the target is the cart do nothing
+      } else if (elementClicked[0] == 'btn') {
+        // If the target is the add to cart btn do nothing
+      } else {
+        // If the target is not the cart or btn do the following
+        cartData.setCartOpen(!cartData.cartOpen);
+      }
+    } else if (event.target.getAttribute('class') == null) {
+      // If the target has no class attribute do the following
+      cartData.setCartOpen(!cartData.cartOpen);
+    }
+  }
+
+  useEffect(() => {
+    if (cartData.cartOpen == true) {
+      document.body.addEventListener('click', toggleCart);
+    }
+
+    return () => document.body.removeEventListener('click', toggleCart);
+  }, [cartData.cartOpen]);
+
+  // Determine the cart total quantity and total price
   let cartItems = 0;
   let cartTotalPrice = 0;
   cartData.cart.map((item) => {
@@ -35,6 +66,7 @@ function Cart() {
           src={closeIcon}
           alt='Close cart icon'
           className='cart-close-icon'
+          onClick={() => showCartHandler()}
         />
       </div>
       {cartData.cart.length == 0 ? (
@@ -42,7 +74,12 @@ function Cart() {
       ) : (
         <div className='cart-header'>
           <div className='cart-title-wrapper'>
-            <p>Cart ({formatNumber(cartItems)})</p>
+            <p className='cart-title'>
+              Cart{' '}
+              <span className='cart-items-number'>
+                ({formatNumber(cartItems)})
+              </span>
+            </p>
             <div className='btn-wrapper'>
               <button className='btn' id='checkout-btn'>
                 Checkout
@@ -50,9 +87,9 @@ function Cart() {
             </div>
           </div>
 
-          <div className='total-wrapper'>
-            <p>Total</p>
-            <p>
+          <div className='cart-total-wrapper'>
+            <p className='cart-total-title'>Total</p>
+            <p className='cart-total'>
               R<span>{formatNumber(cartTotalPrice)}</span>
               .00
             </p>

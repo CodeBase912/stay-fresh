@@ -18,9 +18,10 @@
 }
 
 .nav ul li {
-  padding-right: 10px;
+  margin-right: 10px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .cart-icon-wrapper {
@@ -35,7 +36,7 @@
 .cart-items {
   position: absolute;
   top: -50%;
-  right: 10%;
+  right: -30%;
   background: #a9ca48;
   border-radius: 50%;
   padding: 0 5px;
