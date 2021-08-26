@@ -37,21 +37,29 @@ function Cart() {
           className='cart-close-icon'
         />
       </div>
-      <div className='cart-title-wrapper'>
-        <p>Cart ({formatNumber(cartItems)})</p>
-        <div className='btn-wrapper'>
-          <button className='btn' id='checkout-btn'>
-            Checkout
-          </button>
+      {cartData.cart.length == 0 ? (
+        <p className='cart-empty-banner'>Cart is empty</p>
+      ) : (
+        <div className='cart-header'>
+          <div className='cart-title-wrapper'>
+            <p>Cart ({formatNumber(cartItems)})</p>
+            <div className='btn-wrapper'>
+              <button className='btn' id='checkout-btn'>
+                Checkout
+              </button>
+            </div>
+          </div>
+
+          <div className='total-wrapper'>
+            <p>Total</p>
+            <p>
+              R<span>{formatNumber(cartTotalPrice)}</span>
+              .00
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='total-wrapper'>
-        <p>Total</p>
-        <p>
-          R<span>{formatNumber(cartTotalPrice)}</span>
-          .00
-        </p>
-      </div>
+      )}
+
       <div className='cart-products-wrapper'>
         {cartData.cart.map((item) => {
           const img = images.find((image) => {
