@@ -86,7 +86,6 @@ function Cart() {
 }
 
 function CartItem({ id, name, price, quantity, imgSrc, cart, setCart }) {
-  console.log('cartItem ID: ' + id);
   function IncreaseCartItemQuantity(cartItemId) {
     const cartItemIndexToIncrease = cart.findIndex((item) => {
       if (item.id === cartItemId) {
@@ -94,42 +93,28 @@ function CartItem({ id, name, price, quantity, imgSrc, cart, setCart }) {
       }
     });
 
-    const index = cart.findIndex((item) => {
-      if (item.id === cartItemId) {
-        return true;
-      }
-    });
-
     setCart(() => {
-      if (index < 0) {
+      if (cartItemIndexToIncrease < 0) {
         const arr = cart;
         arr[0].quantity++;
         setCart([...arr]);
-      } else if (index >= 0) {
+      } else if (cartItemIndexToIncrease >= 0) {
         const arr = cart;
-        arr[index].quantity++;
+        arr[cartItemIndexToIncrease].quantity++;
         setCart([...arr]);
       }
     });
   }
 
   function DecreaseCartItemQuantity(cartItemId) {
-    const cartItemIndexToIncrease = cart.findIndex((item) => {
+    const cartItemIndexToDecrease = cart.findIndex((item) => {
       if (item.id === cartItemId) {
         return true;
       }
     });
-
-    const index = cart.findIndex((item) => {
-      if (item.id === cartItemId) {
-        return true;
-      }
-    });
-
-    console.log(index);
 
     setCart(() => {
-      if (index < 0) {
+      if (cartItemIndexToDecrease < 0) {
         const arr = cart;
         if (arr[0].quantity == 1) {
           // Do nothing
@@ -137,16 +122,39 @@ function CartItem({ id, name, price, quantity, imgSrc, cart, setCart }) {
           arr[0].quantity--;
         }
         setCart([...arr]);
-      } else if (index >= 0) {
+      } else if (cartItemIndexToDecrease >= 0) {
         const arr = cart;
-        if (arr[index].quantity == 1) {
+        if (arr[cartItemIndexToDecrease].quantity == 1) {
           // Do nothing
         } else {
-          arr[index].quantity--;
+          arr[cartItemIndexToDecrease].quantity--;
         }
         setCart([...arr]);
       }
     });
+  }
+
+  function removeCartItem(cartItemId) {
+    const cartItemIndexToRemove = cart.findIndex((item) => {
+      if (item.id === cartItemId) {
+        return true;
+      }
+    });
+
+    let arr = cart;
+    if (cartItemIndexToRemove == 0) {
+      arr = arr.slice(cartItemIndexToRemove + 1, arr.length);
+    } else if (cartItemIndexToRemove == arr.length) {
+      arr = arr.slice(0, cartItemIndexToRemove - 1);
+    } else {
+      const LeftArr = arr.slice(0, cartItemIndexToRemove);
+      const RightArr = arr.slice(cartItemIndexToRemove + 1, arr.length);
+      arr = arr
+        .slice(0, cartItemIndexToRemove)
+        .concat(arr.slice(cartItemIndexToRemove + 1, arr.length));
+    }
+
+    setCart(arr);
   }
 
   return (
@@ -156,6 +164,7 @@ function CartItem({ id, name, price, quantity, imgSrc, cart, setCart }) {
           src={deleteIcon}
           alt='Delete cart item'
           className='cart-item-delete-icon'
+          onClick={() => removeCartItem(id)}
         />
       </div>
       <div className='cart-item-img-wrapper'>

@@ -16,7 +16,6 @@ const images = [
 function Product(props) {
   const { productId, name, price, imgSrc } = props;
   const cartData = useContext(AppContext);
-  console.log(cartData.cart);
 
   function addToCart(id) {
     const product = products.find((product) => {
