@@ -1,4 +1,4 @@
-# StayFresh - an ecommerce fresh fruits $ veg store
+# StayFresh - an ecommerce fresh fruits & veg store
 
 [Live site](https://github.com/facebook/create-react-app)
 
