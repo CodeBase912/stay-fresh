@@ -1,6 +1,6 @@
 # StayFresh - an ecommerce fresh fruits & veg store
 
-[Live site](https://github.com/facebook/create-react-app)
+<!-- [Live site](https://github.com/facebook/create-react-app) -->
 
 A personal project I built to learn react. This is a mock website of a company that sells fruits and vegetables and delivers them to your doorstep.
 
