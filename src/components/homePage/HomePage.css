@@ -1,0 +1,52 @@
+.homepage {
+  width: 100%;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 59px);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('../../images/hero-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.hero-title-wrapper h1 {
+  font-size: 50px;
+}
+
+.hero-intro-wrapper p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn-wrapper {
+  text-align: center;
+  padding: 20px;
+}
+
+#order-now-btn {
+  font-size: 18px;
+}
+
+.scroll-btn-wrapper {
+  position: absolute;
+  bottom: 20px;
+}
+
+.scrol-down-icon {
+  width: 40px;
+  height: 40px;
+}

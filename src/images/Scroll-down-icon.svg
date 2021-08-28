@@ -1,0 +1,10 @@
+<svg id="Scroll-down-icon" xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 110 110">
+  <g id="Component_18_1" data-name="Component 18 – 1" transform="translate(19.634 80.953) rotate(-90)">
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="50" height="10" transform="translate(42.426 7.071) rotate(135)" fill="#fff"/>
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="50" height="10" transform="translate(35.355 70.48) rotate(-135)" fill="#fff"/>
+  </g>
+  <g id="Ellipse_1" data-name="Ellipse 1" fill="none" stroke="#fff" stroke-width="10">
+    <circle cx="55" cy="55" r="55" stroke="none"/>
+    <circle cx="55" cy="55" r="50" fill="none"/>
+  </g>
+</svg>
