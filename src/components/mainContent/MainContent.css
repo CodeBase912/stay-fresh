@@ -11,3 +11,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 459px) {
+  .main .product-list {
+    justify-content: center;
+  }
+}

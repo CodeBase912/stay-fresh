@@ -38,3 +38,14 @@
 .product-btn-wrapper {
   padding-top: 10px;
 }
+
+@media screen and (max-width: 459px) {
+  .product:hover {
+    transform: scale(1.01);
+  }
+
+  .product-img-wrapper {
+    width: 90vw;
+    height: 90vw;
+  }
+}
