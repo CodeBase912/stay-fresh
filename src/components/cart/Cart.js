@@ -25,19 +25,15 @@ function Cart() {
   }
 
   function toggleCart(event) {
-    if (event.target.getAttribute('class') != null) {
-      // If the target has a class attribute do the following
-      const elementClicked = event.target.getAttribute('class').split('-');
-      if (elementClicked[0] == 'cart') {
-        // If the target is the cart do nothing
-      } else if (elementClicked[0] == 'btn') {
-        // If the target is the add to cart btn do nothing
-      } else {
-        // If the target is not the cart or btn do the following
-        cartData.setCartOpen(!cartData.cartOpen);
-      }
-    } else if (event.target.getAttribute('class') == null) {
-      // If the target has no class attribute do the following
+    if (event.target?.getAttribute('class')?.split('-')[0] == 'btn') {
+      // Do nothing
+    } else if (event.target?.getAttribute('class')?.split('-')[0] == 'cart') {
+      // Do nothing
+    } else if (
+      event.target?.getAttribute('class')?.split('-')[0] != 'cart' ||
+      event.target?.getAttribute('class')?.split('-')[0] != 'btn'
+    ) {
+      // If the target does not have a class attribute 'cart' or 'btn' do the following
       cartData.setCartOpen(!cartData.cartOpen);
     }
   }

@@ -9,6 +9,7 @@
   color: rgb(37, 37, 37);
   z-index: 2;
   box-shadow: -2px 0px 30px rgb(192, 192, 192);
+  backdrop-filter: blur(20px);
 }
 
 .cart-close-icon-wrapper {
