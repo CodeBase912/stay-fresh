@@ -4,7 +4,11 @@
 
 A personal project I built to learn react. This is a mock website of a company that sells fruits and vegetables and delivers them to your doorstep.
 
-![screenshot] [screenshot]: ./screenshot.jpg
+**Note: The work on this project is still in progress!**
+
+<!-- ## Screenshot
+
+![screenshot](./public/images/screenshot.png?raw=true 'Screenshot of StayFresh') -->
 
 ## Features
 
