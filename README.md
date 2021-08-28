@@ -9,13 +9,6 @@ A personal project I built to learn react. This is a mock website of a company t
 ## Features
 
 - Inculdes a cart where users can add, edit and remove cart items
-<!-- - Edits are autosaved to the server efficiently by treating cells as individual models
-- Users can create accounts (optionally using OAuth provider), and add a user profile photo (stored using AWS)
-- Users can edit a spreadsheet simultaneously, seeing other edits appear live (uses [Pusher](https://pusher.com/))
-- Spreadsheets can be navigated and edited using either mouse or keyboard
-- Users can drag to resize rows and columns (implemented using JQuery UI plugin), with changes saved to the server
-- Users can copy, cut and paste cells, with copied formulae translated for their new location
-- Spreadsheets can be shared with other users -->
 
 ### Features not yet achieved
 
