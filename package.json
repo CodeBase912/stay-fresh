@@ -1,5 +1,5 @@
 {
-  "name": "StayFresh",
+  "name": "stayfresh",
   "version": "0.1.0",
   "description": "A personal project I built to learn react. This is a mock website of a company that sells fruits and vegetables and delivers them to your doorstep.",
   "private": true,
@@ -36,14 +36,14 @@
       "last 1 safari version"
     ]
   },
-  "author": "Tshepo Tsilo",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeBase912/stay-fresh.git"
   },
+  "author": "Tshepo Tsilo",
+  "license": "ISC",
   "bugs": {
-    "url": "ttps://github.com/CodeBase912/stay-fresh/issues"
+    "url": "https://github.com/CodeBase912/stay-fresh.git/issues"
   },
-  "homepage": "ttps://github.com/CodeBase912/stay-fresh#readme"
+  "homepage": "https://github.com/CodeBase912/stay-fresh.git#readme"
 }
