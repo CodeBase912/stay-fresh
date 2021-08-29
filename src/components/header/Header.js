@@ -9,8 +9,29 @@ function Header() {
     cartData.setCartOpen(!cartData.cartOpen);
   }
 
+  function handleScroll(event) {
+    const header = document.getElementById('header');
+    if (window.scrollY >= 100) {
+      header.style.transition = 'all 0.2s ease-in';
+      header.style.background = 'white';
+      header.style.color = 'black';
+      header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+    } else if (window.scrollY < 100) {
+      header.style.transition = 'all 0.2s ease-in';
+      header.style.background = 'transparent';
+      header.style.color = 'white';
+      header.style.boxShadow = 'unset';
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className='header'>
+    <div className='header' id='header'>
       <div className='logo'>
         <h1>StayFresh</h1>
       </div>

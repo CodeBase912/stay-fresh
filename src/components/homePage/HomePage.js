@@ -22,8 +22,16 @@ function HomePage() {
           </div>
         </div>
         <div className='scroll-btn-wrapper'>
-          <img src={scrollIcon} alt='Scroll down' className='scrol-down-icon' />
+          <img
+            src={scrollIcon}
+            alt='Scroll down'
+            className='scroll-down-icon'
+          />
         </div>
+      </div>
+
+      <div className='services-section'>
+        <div className='section-title'>Services</div>
       </div>
     </div>
   );
