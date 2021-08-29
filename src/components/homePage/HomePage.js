@@ -3,7 +3,7 @@ import scrollIcon from '../../images/Scroll-down-icon.svg';
 import '../../App.css';
 import './HomePage.css';
 
-function Hompage() {
+function HomePage() {
   return (
     <div className='homepage'>
       <div className='hero-section'>
@@ -29,4 +29,4 @@ function Hompage() {
   );
 }
 
-export default Hompage;
+export default HomePage;
