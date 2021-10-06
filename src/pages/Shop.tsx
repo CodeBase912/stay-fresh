@@ -1,17 +1,24 @@
 import React from 'react';
-import Header from '../header/Header';
-import Product from '../product/Product';
-import { products } from '../../products';
+import Header from '../components/Header';
+import Product from '../components/Product';
+import { products } from '../products';
 import './MainContent.css';
 
-function MainContent() {
+interface ProductInterface {
+  id: number;
+  name: string;
+  price: number;
+  imgSrc: string;
+}
+
+const Shop: React.FC = () => {
   return (
     <>
       <Header />
       <div className='main'>
         <h2>Products</h2>
         <div className='product-list'>
-          {products.map((product) => {
+          {products.map((product: ProductInterface) => {
             return (
               <Product
                 id={product.id}
@@ -25,6 +32,6 @@ function MainContent() {
       </div>
     </>
   );
-}
+};
 
-export default MainContent;
+export default Shop;

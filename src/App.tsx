@@ -7,7 +7,7 @@ import {
   GlobalState,
 } from 'little-state-machine';
 import HomePage from './pages/HomePage';
-import MainContent from './pages/MainContent';
+import Shop from './pages/Shop';
 import Cart from './components/Cart';
 import './App.css';
 
@@ -21,6 +21,7 @@ interface Payload {
   name: string;
   price: number;
   quantity: number;
+  imgSrc: string;
   subtract?: boolean;
 }
 
@@ -104,7 +105,7 @@ const Application: React.FC = () => {
       {state.cartOpen === true ? <Cart /> : console.log('')}
       <Router>
         <Route exact path='/' component={HomePage} />
-        <Route exact path='/shop' component={MainContent} />
+        <Route exact path='/shop' component={Shop} />
         {/* <Route exact path='/signup' component={Signup} /> */}
       </Router>
     </>

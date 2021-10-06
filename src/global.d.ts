@@ -5,6 +5,7 @@ interface CartItems {
   name: string;
   price: number;
   quantity: number;
+  imgSrc: string;
 }
 
 declare module 'little-state-machine' {
