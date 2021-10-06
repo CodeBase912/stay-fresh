@@ -1,11 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateMachine } from 'little-state-machine';
-import { updateCartOpen, updateCartItems } from '../../App';
+import { updateCartOpen, updateCartItems } from '../App';
 import './Header.css';
-import cartIcon from '../../images/shopping-cart.png';
+import cartIcon from '../images/shopping-cart.png';
 
-function Header(props) {
+interface Props {
+  scrollEffectEnabled?: boolean;
+}
+
+const Header: React.FC<Props> = (props) => {
   const { scrollEffectEnabled } = props;
   const { actions, state } = useStateMachine({
     updateCartItems,
@@ -13,27 +17,31 @@ function Header(props) {
   });
 
   function showCartHandler() {
-    // cartData.setCartOpen(!cartData.cartOpen);
     actions.updateCartOpen(!state.cartOpen);
   }
 
-  function handleScroll(event) {
-    const header = document.getElementById('header');
-    const Links = document.querySelectorAll('.header-link');
+  function handleScroll(event: Event) {
+    const header: HTMLElement | null = document.getElementById('header');
+    const Links: NodeListOf<HTMLElement> =
+      document.querySelectorAll('.header-link');
     if (window.scrollY >= 100) {
-      header.style.transition = 'all 0.2s ease-in';
-      header.style.background = 'white';
-      header.style.color = 'black';
-      header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+      if (header) {
+        header.style.transition = 'all 0.2s ease-in';
+        header.style.background = 'white';
+        header.style.color = 'black';
+        header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+      }
       Array.from(Links).map((link) => {
         link.classList.add('black');
         link.classList.remove('white');
       });
     } else if (window.scrollY < 100) {
-      header.style.transition = 'all 0.2s ease-in';
-      header.style.background = 'transparent';
-      header.style.color = 'white';
-      header.style.boxShadow = 'unset';
+      if (header) {
+        header.style.transition = 'all 0.2s ease-in';
+        header.style.background = 'transparent';
+        header.style.color = 'white';
+        header.style.boxShadow = 'unset';
+      }
       Array.from(Links).map((link) => {
         link.classList.add('white');
         link.classList.remove('black');
@@ -43,22 +51,27 @@ function Header(props) {
 
   useEffect(() => {
     if (scrollEffectEnabled) {
-      const header = document.getElementById('header');
-      const Links = document.querySelectorAll('.header-link');
+      const header: HTMLElement | null = document.getElementById('header');
+      const Links: NodeListOf<HTMLElement> =
+        document.querySelectorAll('.header-link');
       if (window.scrollY >= 100) {
-        header.style.transition = 'all 0.2s ease-in';
-        header.style.background = 'white';
-        header.style.color = 'black';
-        header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+        if (header) {
+          header.style.transition = 'all 0.2s ease-in';
+          header.style.background = 'white';
+          header.style.color = 'black';
+          header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+        }
         Array.from(Links).map((link) => {
           link.classList.add('black');
           link.classList.remove('white');
         });
       } else if (window.scrollY < 100) {
-        header.style.transition = 'all 0.2s ease-in';
-        header.style.background = 'transparent';
-        header.style.color = 'white';
-        header.style.boxShadow = 'unset';
+        if (header) {
+          header.style.transition = 'all 0.2s ease-in';
+          header.style.background = 'transparent';
+          header.style.color = 'white';
+          header.style.boxShadow = 'unset';
+        }
         Array.from(Links).map((link) => {
           link.classList.add('white');
           link.classList.remove('black');
@@ -68,11 +81,14 @@ function Header(props) {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
-      const header = document.getElementById('header');
-      const Links = document.querySelectorAll('.header-link');
-      header.style.background = 'white';
-      header.style.color = 'black';
-      header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+      const header: HTMLElement | null = document.getElementById('header');
+      const Links: NodeListOf<HTMLElement> =
+        document.querySelectorAll('.header-link');
+      if (header) {
+        header.style.background = 'white';
+        header.style.color = 'black';
+        header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+      }
       Array.from(Links).map((link) => {
         link.classList.add('black');
         link.classList.remove('white');
@@ -135,7 +151,7 @@ function Header(props) {
       </div>
     </div>
   );
-}
+};
 
 function CartItemsIndicator() {
   const { actions, state } = useStateMachine({

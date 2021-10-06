@@ -1,8 +1,8 @@
 import React from 'react';
-// import Header from '../header/Header';
-// import scrollIcon from '../../images/Scroll-down-icon.svg';
-// import '../../App.css';
-// import './HomePage.css';
+import Header from '../components/Header';
+import scrollIcon from '../images/Scroll-down-icon.svg';
+import '../App.css';
+import './HomePage.css';
 
 function HomePage() {
   return (

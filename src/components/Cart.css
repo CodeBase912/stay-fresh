@@ -1,0 +1,140 @@
+.cart-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30vw;
+  min-width: 300px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.911);
+  color: rgb(37, 37, 37);
+  z-index: 2;
+  box-shadow: -2px 0px 30px rgba(0, 0, 0, 0.397);
+  backdrop-filter: blur(20px);
+}
+
+.cart-close-icon-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0;
+}
+
+.cart-close-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.cart-empty-banner {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.cart-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px 10px 5px;
+}
+
+.cart-title-wrapper p {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.cart-title-wrapper p span {
+  color: rgb(156, 155, 155);
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+#checkout-btn {
+  font-size: 15px;
+}
+
+.cart-total-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  font-weight: bold;
+  font-size: 23px;
+  background: #f57e2e;
+  color: white;
+}
+
+.cart-item {
+  /* background: lightblue; */
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 10px;
+  border-bottom: 2px solid #f57e2e;
+}
+
+.cart-item-delete-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.cart-item-delete-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.cart-item-details {
+  padding-left: 10px;
+  width: 100%;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.cart-item-quantity-wrapper {
+  padding-top: 5px;
+}
+
+.cart-item-quantity-title {
+  font-size: 13px;
+  color: rgb(156, 155, 155);
+  width: 80px;
+  text-align: center;
+}
+
+.cart-item-quantity-detils-wrapper {
+  display: flex;
+  width: 80px;
+  justify-content: space-between;
+}
+
+.cart-item-change-quantity-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.cart-item-total-price-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-item-total-price-wrapper p {
+  font-weight: bold;
+  font-size: 18px;
+}
