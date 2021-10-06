@@ -98,16 +98,11 @@ const Cart: React.FC = () => {
         <div className='cart-header'>
           <div className='cart-title-wrapper'>
             <p className='cart-title'>
-              Cart{' '}
+              Cart
               <span className='cart-items-number'>
                 ({formatNumber(totalCartQuantity)})
               </span>
             </p>
-            <div className='btn-wrapper'>
-              <button className='btn' id='checkout-btn'>
-                Checkout
-              </button>
-            </div>
           </div>
 
           <div className='cart-total-wrapper'>
@@ -141,6 +136,15 @@ const Cart: React.FC = () => {
           );
         })}
       </div>
+      {state.cartItems.length > 0 ? (
+        <div className='cart-btn-wrapper'>
+          <button className='btn' id='checkout-btn'>
+            Checkout
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

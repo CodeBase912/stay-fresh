@@ -33,7 +33,8 @@ export function updateCartItems(state: GlobalState, payload: Payload) {
       return true;
     }
   });
-  if (index && index >= 0 && itemToUpdate) {
+
+  if (typeof index === 'number' && index >= 0 && itemToUpdate) {
     let newCartItems = state.cartItems;
     // if (payload?.add) newCartItems[index].quantity++;
     if (payload?.subtract && newCartItems[index].quantity > 1) {
