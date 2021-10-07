@@ -1,14 +1,23 @@
+// Import React and other useful libraries
 import React from 'react';
+// Import React Components
 import Header from '../components/Header';
-import scrollIcon from '../images/Scroll-down-icon.svg';
+// Import Styles
 import '../App.css';
 import './HomePage.css';
+// Import Images
+import scrollIcon from '../images/Scroll-down-icon.svg';
 
-function HomePage() {
+// Define the Homepage React component
+const HomePage: React.FC = () => {
+  // Return the JSX Element to render
   return (
     <>
+      {/* Display the Header component */}
       <Header scrollEffectEnabled={true} />
+      {/* Display the Hompage content */}
       <div className='homepage'>
+        {/* Hero scetion */}
         <div className='hero-section'>
           <div className='hero-title-wrapper'>
             <h1>StayFresh</h1>
@@ -33,12 +42,13 @@ function HomePage() {
           </div>
         </div>
 
+        {/* Services provided section */}
         <div className='services-section'>
           <div className='section-title'>Services</div>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default HomePage;

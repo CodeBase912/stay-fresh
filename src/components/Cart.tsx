@@ -1,7 +1,14 @@
+// Import React and other useful libraries
 import React, { useContext, useEffect } from 'react';
 import { GlobalState, useStateMachine } from 'little-state-machine';
+// Import Global State Actions
 import { updateCartOpen, updateCartItems, removeCartItem } from '../App';
+// Import Utility functions
 import { formatNumber } from '../Util/Util';
+// Import Styles
+import '../App.css';
+import './Cart.css';
+// Import Images
 import closeIcon from '../images/close.png';
 import deleteIcon from '../images/delete.png';
 import plusIcon from '../images/plus.png';
@@ -9,9 +16,6 @@ import minusIcon from '../images/minus.png';
 import ProductImg1 from '../images/products/1.png';
 import ProductImg2 from '../images/products/2.png';
 import ProductImg3 from '../images/products/3.jpg';
-import '../App.css';
-import './Cart.css';
-import { CartItems } from '../global';
 
 interface Image {
   img: string;
@@ -26,7 +30,7 @@ const images: Image[] = [
 
 // Define the Cart component
 const Cart: React.FC = () => {
-  // Import the state variables and actions
+  // Import the global state variables and actions
   const { actions, state } = useStateMachine({
     updateCartItems,
     updateCartOpen,
@@ -78,6 +82,7 @@ const Cart: React.FC = () => {
     totalCartPrice += item.price * item.quantity;
   });
 
+  // Return the JSX Element to render
   return (
     <div className='cart-wrapper'>
       {/* Display the close cart icon */}
@@ -117,11 +122,13 @@ const Cart: React.FC = () => {
       {/* Render a list of the cart items */}
       <div className='cart-products-wrapper'>
         {state.cartItems.map((item) => {
+          // Determine the image to render with the cart item
           const img: Image | undefined = images.find((image) => {
             if (image.src === item.imgSrc) {
               return true;
             }
           });
+          // Return the cart item
           return (
             <CartItem
               key={item.id}
@@ -136,6 +143,7 @@ const Cart: React.FC = () => {
           );
         })}
       </div>
+      {/* Render the checkout button if the cart is not empty */}
       {state.cartItems.length > 0 ? (
         <div className='cart-btn-wrapper'>
           <button className='btn' id='checkout-btn'>
@@ -176,14 +184,7 @@ const CartItem: React.FC<CartItemsProps> = ({
    * @param {number} cartItemId  the id of the cart item to increase
    */
   function IncreaseCartItemQuantity(cartItemId: number) {
-    const cartItemIndexToIncrease = state.cartItems.findIndex(
-      (item: CartItems) => {
-        if (item.id === cartItemId) {
-          return true;
-        }
-      }
-    );
-
+    // Update the cart item
     actions.updateCartItems({
       id: cartItemId,
     });
@@ -195,12 +196,7 @@ const CartItem: React.FC<CartItemsProps> = ({
    * @param {number} cartItemId  the id of the cart item to decrease
    */
   function DecreaseCartItemQuantity(cartItemId: number) {
-    const cartItemIndexToDecrease = state.cartItems.findIndex((item) => {
-      if (item.id === cartItemId) {
-        return true;
-      }
-    });
-
+    // Update the cart item
     actions.updateCartItems({
       id: cartItemId,
       subtract: true,
@@ -213,11 +209,13 @@ const CartItem: React.FC<CartItemsProps> = ({
    * @param {number} cartItemId  the id of the cart item to remove
    */
   function removeCartItem(cartItemId: number) {
+    // Remove the cart item
     actions.removeCartItem({
       id: cartItemId,
     });
   }
 
+  // Return the JSX Element to render
   return (
     <div className='cart-item'>
       {/* Display the delete cart item icon */}
