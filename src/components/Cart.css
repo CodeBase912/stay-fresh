@@ -66,9 +66,9 @@
 
 .cart-products-wrapper {
   position: relative;
-  height: calc(100% - 129px - 70px);
+  height: calc(100% - 129px - 120px);
   overflow-y: scroll;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 
 .cart-btn-wrapper {
@@ -76,9 +76,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 400px;
   bottom: 0;
+  right: 0;
   padding: 15px 0;
+  z-index: 2;
 }
 
 #checkout-btn {

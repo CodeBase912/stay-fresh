@@ -163,6 +163,19 @@ const Application: React.FC = () => {
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={Shop} />
       </Router>
+      {state.cartOpen ? (
+        state.cartItems.length > 0 ? (
+          <div className='cart-btn-wrapper'>
+            <button className='btn' id='checkout-btn'>
+              Checkout
+            </button>
+          </div>
+        ) : (
+          ''
+        )
+      ) : (
+        ''
+      )}
     </>
   );
 };

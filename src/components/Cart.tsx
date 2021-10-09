@@ -144,15 +144,6 @@ const Cart: React.FC = () => {
         })}
       </div>
       {/* Render the checkout button if the cart is not empty */}
-      {state.cartItems.length > 0 ? (
-        <div className='cart-btn-wrapper'>
-          <button className='btn' id='checkout-btn'>
-            Checkout
-          </button>
-        </div>
-      ) : (
-        ''
-      )}
     </div>
   );
 };
