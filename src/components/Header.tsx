@@ -32,23 +32,49 @@ const Header: React.FC<Props> = ({ scrollEffectEnabled }) => {
   /**
    * Changes the appearence of the Header React component when the user
    * scrolls down the page
-   *
-   * @param {Event | undefined} event  the DOM scroll event that
-   *                                   triggered the handleScroll
-   *                                   function call
    */
-  function handleScroll(event?: Event) {
+  function handleHeaderDisplay() {
     // Select the header and header Links HTML DOM elements
     const header: HTMLElement | null = document.getElementById('header');
     const Links: NodeListOf<HTMLElement> =
       document.querySelectorAll('.header-link');
 
-    // Check if the user has scrolled more than 100px down
-    if (window.scrollY >= 100) {
-      // User scrolled more than 100px down. Display the Header component
-      // with a white background and black text
+    // Check if the scroll efect should be enabled
+    if (scrollEffectEnabled === true) {
+      // Scroll effect should be enabled
+      // Check if the user has scrolled more than 100px down
+      if (window.scrollY >= 100) {
+        // User scrolled more than 100px down. Display the Header component
+        // with a white background and black text
+        if (header) {
+          header.style.transition = 'all 0.2s ease-in';
+          header.style.background = 'white';
+          header.style.color = 'black';
+          header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
+        }
+        Array.from(Links).map((link) => {
+          link.classList.add('black');
+          link.classList.remove('white');
+        });
+      } else if (window.scrollY < 100) {
+        // User scrolled less than 100px down. Display the Header component
+        // with a transparent background and white text
+        if (header) {
+          header.style.transition = 'all 0.2s ease-in';
+          header.style.background = 'transparent';
+          header.style.color = 'white';
+          header.style.boxShadow = 'unset';
+        }
+        Array.from(Links).map((link) => {
+          link.classList.add('white');
+          link.classList.remove('black');
+        });
+      }
+    } else {
+      // Scroll effect should not be enabled
+      // Display the Header component
+      // with a transparent background and white text
       if (header) {
-        header.style.transition = 'all 0.2s ease-in';
         header.style.background = 'white';
         header.style.color = 'black';
         header.style.boxShadow = '0px 2px 30px rgba(0, 0, 0, 0.404)';
@@ -57,40 +83,16 @@ const Header: React.FC<Props> = ({ scrollEffectEnabled }) => {
         link.classList.add('black');
         link.classList.remove('white');
       });
-    } else if (window.scrollY < 100) {
-      // User scrolled less than 100px down. Display the Header component
-      // with a transparent background and white text
-      if (header) {
-        header.style.transition = 'all 0.2s ease-in';
-        header.style.background = 'transparent';
-        header.style.color = 'white';
-        header.style.boxShadow = 'unset';
-      }
-      Array.from(Links).map((link) => {
-        link.classList.add('white');
-        link.classList.remove('black');
-      });
     }
   }
 
   useEffect(() => {
-    // Check if the scroll effect on the Header component should be enabled
-    if (scrollEffectEnabled) {
-      // Scroll effect on the Header component should be enabled
-
-      // Call the handleScroll function to display the header correcly
-      handleScroll();
-
-      // Add the scroll event listener with the handleScroll callback on the
-      // window object
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    } else {
-      // Scroll effect on the Header component should not be enabled
-
-      // Call the handleScroll function to display the header correcly
-      handleScroll();
-    }
+    // Display the header correctly
+    handleHeaderDisplay();
+    // Add the scroll event listener with the handleHeaderDisplay callback on the
+    // window object
+    window.addEventListener('scroll', handleHeaderDisplay);
+    return () => window.removeEventListener('scroll', handleHeaderDisplay);
   }, []);
 
   // Return the JSX Element to render

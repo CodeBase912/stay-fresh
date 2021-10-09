@@ -18,6 +18,6 @@ body {
 }
 
 .btn:active {
-  background: white;
+  background: transparent;
   color: #f57e2e;
 }

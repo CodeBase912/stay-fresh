@@ -1,0 +1,105 @@
+.product-list-wrapper {
+  padding: 40px 0 20px 0;
+}
+
+.product-list-wrapper h2 {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(85, 85, 85);
+  padding: 0 20px;
+  padding-bottom: 10px;
+}
+
+.product-list-wrapper-btn-wrapper .btn {
+  font-size: 15px !important;
+  padding: 5px 20px;
+  background: #a9ca48;
+  border: 2px solid #a9ca48;
+}
+
+.product-list-wrapper-btn-wrapper .btn:active {
+  color: #a9ca48;
+  background: transparent;
+}
+
+.product-list-wrapper .product-list {
+  display: flex;
+  overflow-x: scroll;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  transition: 1s ease-in-out;
+}
+/* width */
+.product-list-wrapper .product-list::-webkit-scrollbar {
+  height: 5px !important;
+  background-color: transparent;
+}
+/* Track */
+.product-list-wrapper .product-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background-color: transparent;
+  margin: 20px;
+}
+/* Handle */
+.product-list-wrapper .product-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* width */
+/* .product-list-wrapper .product-list::-webkit-scrollbar {
+  height: 5px;
+} */
+
+/* Track */
+/* .product-list-wrapper .product-list::-webkit-scrollbar-track {
+  height: 5px;
+  margin: 20px;
+} */
+
+/* Handle */
+/* .product-list-wrapper .product-list::-webkit-scrollbar-thumb {
+  background: #a9ca48;
+} */
+
+/* Handle on hover */
+/* .product-list-wrapper .product-list::-webkit-scrollbar-thumb:hover {
+  background: #f57e2e;
+} */
+
+.on-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.on-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.on-scrollbar::-webkit-scrollbar {
+  width: 6px !important;
+  background: transparent;
+}
+
+.on-scrollbar::-webkit-scrollbar-thumb {
+  background: #a9ca48 !important;
+}
+
+/* Handle on hover */
+.on-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f57e2e !important;
+}
+
+.product-list {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 459px) {
+  .main .product-list {
+    justify-content: center;
+  }
+}
