@@ -2,7 +2,6 @@
   box-shadow: 0px 5px 20px rgb(207, 207, 207);
   max-width: min-content;
   border-radius: 5px;
-  text-align: center;
   margin: 0 20px 30px 20px;
   transition: all 0.5s;
 }
@@ -18,8 +17,8 @@
 .product-img-wrapper {
   display: flex;
   justify-content: center;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
