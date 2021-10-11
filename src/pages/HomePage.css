@@ -82,6 +82,12 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  .hero-section-wrapper {
+    padding: 0 10px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .hero-content-wrapper {
     background: linear-gradient(to right, black, transparent 350px);

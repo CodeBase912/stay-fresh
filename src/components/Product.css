@@ -52,3 +52,17 @@
     height: 90vw;
   }
 } */
+
+@media screen and (max-width: 650px) {
+  .product {
+    margin: 0 10px 30px 20px;
+  }
+
+  .product:first-child {
+    margin: 0 10px 30px 10px;
+  }
+
+  .product:last-child {
+    margin: 0 10px 30px 20px;
+  }
+}

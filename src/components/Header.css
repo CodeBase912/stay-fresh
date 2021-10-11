@@ -135,6 +135,10 @@
 }
 
 @media screen and (max-width: 650px) {
+  .header {
+    padding: 10px 0px 10px 10px;
+  }
+
   .nav {
     display: none;
     position: absolute;
