@@ -16,6 +16,9 @@ import minusIcon from '../images/minus.png';
 import ProductImg1 from '../images/products/1.png';
 import ProductImg2 from '../images/products/2.png';
 import ProductImg3 from '../images/products/3.jpg';
+import ProductImg4 from '../images/products/onions.jpg';
+import ProductImg5 from '../images/products/broccoli.jpg';
+import ProductImg6 from '../images/products/cucumber.jpg';
 
 interface Image {
   img: string;
@@ -26,6 +29,12 @@ const images: Image[] = [
   { img: ProductImg1, src: '../../images/products/1.png' },
   { img: ProductImg2, src: '../../images/products/2.png' },
   { img: ProductImg3, src: '../../images/products/3.jpg' },
+];
+
+const trendingImages: Image[] = [
+  { img: ProductImg4, src: '../../images/products/onions.jpg' },
+  { img: ProductImg5, src: '../../images/products/broccoli.jpg' },
+  { img: ProductImg6, src: '../../images/products/cucumber.jpg' },
 ];
 
 // Define the Cart component
@@ -123,11 +132,17 @@ const Cart: React.FC = () => {
       <div className='cart-products-wrapper'>
         {state.cartItems.map((item) => {
           // Determine the image to render with the cart item
-          const img: Image | undefined = images.find((image) => {
-            if (image.src === item.imgSrc) {
-              return true;
-            }
-          });
+          const img: Image | undefined =
+            images.find((image) => {
+              if (image.src === item.imgSrc) {
+                return true;
+              }
+            }) ||
+            trendingImages.find((image) => {
+              if (image.src === item.imgSrc) {
+                return true;
+              }
+            });
           // Return the cart item
           return (
             <CartItem

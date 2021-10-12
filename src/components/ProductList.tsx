@@ -2,18 +2,32 @@
 import React, { useEffect } from 'react';
 // Import React Components
 import Product from './Product';
-// Import Products
-import { products } from '../products';
 // Import Styles
 import './ProductList.css';
 
 // Define the Product type interface
 interface Props {
   title: string;
+  products: {
+    id: number;
+    name: string;
+    price: number;
+    imgSrc: string;
+    description: string[];
+  }[];
+  background?: string;
+  shadow?: boolean;
+  color?: string;
 }
 
 // Define the ProductList React component
-const ProductList: React.FC<Props> = ({ title }) => {
+const ProductList: React.FC<Props> = ({
+  title,
+  products,
+  background,
+  shadow,
+  color,
+}) => {
   function handleScroll(e: any) {
     if (e.target.classList.contains('on-scrollbar') === false) {
       e.target.classList.add('on-scrollbar');
@@ -25,11 +39,15 @@ const ProductList: React.FC<Props> = ({ title }) => {
   }
 
   useEffect(() => {
-    const listOfProducts: HTMLElement | null =
-      document.querySelector('.product-list');
-    listOfProducts?.addEventListener('scroll', handleScroll, true);
+    const listOfProducts: NodeListOf<HTMLElement> =
+      document.querySelectorAll('.product-list');
+    Array.from(listOfProducts)?.map((list) => {
+      list.addEventListener('scroll', handleScroll, true);
+    });
     return () => {
-      // cleanup
+      Array.from(listOfProducts)?.map((list) => {
+        list.removeEventListener('scroll', handleScroll, true);
+      });
     };
   }, []);
 
@@ -37,8 +55,11 @@ const ProductList: React.FC<Props> = ({ title }) => {
   return (
     <>
       {/* Display the Shop page content */}
-      <div className='product-list-wrapper'>
-        <h2>
+      <div
+        className='product-list-wrapper'
+        style={background ? { backgroundColor: background } : {}}
+      >
+        <h2 style={color ? { color: color } : {}}>
           {title}
           <div className='product-list-wrapper-btn-wrapper'>
             <button className='btn' id='order-now-btn'>
@@ -55,6 +76,8 @@ const ProductList: React.FC<Props> = ({ title }) => {
                 name={product.name}
                 price={product.price}
                 imgSrc={product.imgSrc}
+                description={product.description}
+                shadow={shadow}
               />
             );
           })}

@@ -13,6 +13,7 @@ interface ProductInterface {
   name: string;
   price: number;
   imgSrc: string;
+  description: string[];
 }
 
 // Define the Shop React component
@@ -32,6 +33,7 @@ const Shop: React.FC = () => {
                 name={product.name}
                 price={product.price}
                 imgSrc={product.imgSrc}
+                description={product.description}
               />
             );
           })}

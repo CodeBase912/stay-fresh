@@ -103,13 +103,24 @@ const Header: React.FC<Props> = ({ scrollEffectEnabled }) => {
     }
   }
 
+  // let body: HTMLElement | null = document.querySelector('body');
+  // let height: number | undefined = body?.clientHeight;
   useEffect(() => {
     // Display the header correctly
     handleHeaderDisplay();
     // Add the scroll event listener with the handleHeaderDisplay callback on the
     // window object
     window.addEventListener('scroll', handleHeaderDisplay);
-    return () => window.removeEventListener('scroll', handleHeaderDisplay);
+
+    // window.addEventListener('scroll', () => {
+    //   height = body?.getBoundingClientRect().height;
+    // });
+    return () => {
+      window.removeEventListener('scroll', handleHeaderDisplay);
+      // window.addEventListener('scroll', () => {
+      //   height = body?.getBoundingClientRect().height;
+      // });
+    };
   }, []);
 
   // Return the JSX Element to render
@@ -143,7 +154,6 @@ const Header: React.FC<Props> = ({ scrollEffectEnabled }) => {
                     id='SvgjsSvg1001'
                     xmlns='http://www.w3.org/2000/svg'
                     version='1.1'
-                    enable-background='new 0 0 32 32'
                     viewBox='0 0 32 32'
                   >
                     <path

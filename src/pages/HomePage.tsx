@@ -3,6 +3,8 @@ import React from 'react';
 // Import React Components
 import Header from '../components/Header';
 import ProductList from '../components/ProductList';
+// Import Products
+import { products, trendingProducts } from '../products';
 // Import Styles
 import '../App.css';
 import './HomePage.css';
@@ -50,7 +52,17 @@ const HomePage: React.FC = () => {
 
         {/* Services provided section */}
         <div className='services-section'>
-          <ProductList title='Popular Products' />
+          <ProductList
+            title='Popular Products'
+            products={trendingProducts}
+            shadow={true}
+          />
+          <ProductList
+            title='Popular Bundles'
+            products={products}
+            color={'white'}
+            background='#f57e2e'
+          />
         </div>
       </div>
     </>

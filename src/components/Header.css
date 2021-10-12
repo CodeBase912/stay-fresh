@@ -170,11 +170,23 @@
 
   .nav ul li:first-child {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 20px 10px 20px;
+  }
+
+  .nav ul li {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  .nav ul li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav ul li:not(:first-child) {
-    margin-top: 20px;
+    padding: 10px 0;
   }
 
   .cart-icon-section {
